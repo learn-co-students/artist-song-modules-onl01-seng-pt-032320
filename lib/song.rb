@@ -4,6 +4,7 @@ require_relative '../lib/concerns/memorable'
 class Song
   extend Memorable::ClassMethods
   extend Findable::ClassMethods
+  include Memorable::InstanceMethods
   include Paramable
   attr_accessor :name
   attr_reader :artist
@@ -11,7 +12,7 @@ class Song
   @@songs = []
 
   def initialize
-    @@songs << self
+    super
   end
 
   # def self.find_by_name(name)
