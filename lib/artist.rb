@@ -1,9 +1,12 @@
 require 'pry'
-
+require_relative '../lib/concerns/memorable' 
 class Artist
   attr_accessor :name
   attr_reader :songs
-
+  
+  extend Memorable
+  
+  
   @@artists = []
 
   def initialize
@@ -18,14 +21,14 @@ class Artist
   def self.all
     @@artists
   end
+# we do not need these two methods count and reset since its defined in our memorable Module due to duplication
+  # def self.reset_all
+  #   self.all.clear
+  # end
 
-  def self.reset_all
-    self.all.clear
-  end
-
-  def self.count
-    self.all.count
-  end
+  # def self.count
+  #   self.all.count
+  # end
 
   def add_song(song)
     @songs << song
