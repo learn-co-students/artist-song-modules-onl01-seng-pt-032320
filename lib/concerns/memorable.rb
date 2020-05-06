@@ -10,22 +10,34 @@
 # is omitted when defining class methods inside modules. The extend keyword is responsible for defining the method as a class method vs. an
 # instance method (which would use the include keyword).
 
+
+
 module Memorable
-
-  module ClassMethods
-    def self.reset_all
-      self.all.clear
-    end
-
-    def self.count
-      self.all.count
-    end
+  def reset_all
+    self.all.clear
   end
 
-  module InstanceMethods
-
-    def initialize
-      self.class.all << self
-    end
+  def count
+    self.all.count
   end
 end
+
+# module Memorable
+#
+#   module ClassMethods
+#     def self.reset_all
+#       self.all.clear
+#     end
+#
+#     def self.count
+#       self.all.count
+#     end
+#   end
+#
+#   module InstanceMethods
+#
+#     def initialize
+#       self.class.all << self
+#     end
+#   end
+# end
